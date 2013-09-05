@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+	DocumentRoot <%= @wwwroot %>
+	
+	# https://groups.google.com/d/msg/vagrant-up/7RgBxo6EksQ/My79QT0TUwcJ
+	EnableSendfile off
+
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	
+	<Directory <%= @wwwroot %>>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	LogLevel warn
+	ErrorLog /var/log/apache2/error.log
+	CustomLog /var/log/apache2/access.log combined
+</VirtualHost>
