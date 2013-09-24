@@ -118,6 +118,7 @@ class project
       File["custom install script"],
     ],
     timeout => 0,
+    logoutput => true,
   }
 
   exec { "remove custom install":
@@ -127,6 +128,7 @@ class project
     require => [
       Exec["extract installer"],
       File["custom install script"],
+      Exec["run custom install"],
     ],
   }
 
@@ -135,7 +137,10 @@ class project
     command => "/usr/bin/mysql -u${params::mysql_user} -p${params::mysql_password} ${params::mysql_database} < /srv/config/db.sql",
     onlyif  => "test -f /srv/config/db.sql",
     # unless  => "/usr/bin/mysql -uroot -p${params::mysql_password} \"use database\"",
-    require => Service["mysql"],
+    require => [
+      Service["mysql"],
+      Exec["run custom install"],
+    ],
   }
 
   # copy config.dat if present

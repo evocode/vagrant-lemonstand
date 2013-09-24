@@ -18,11 +18,11 @@ Install Vagrant + Virtualbox then run the following commands:
 
 	git clone git@github.com:lemonoid/vagrant-lemonstand.git
 	cd vagrant-lemonstand
-	cp puppet/manifests/params.pp.dist puppet/manifests/params.pp
+	cp puppet/modules/params/manifests/init.dist.pp puppet/modules/params/manifests/init.pp
 
-Edit the configuration file found at:
+Edit the configuration file with your favorite editor at:
 
-	puppet/manifests/params.pp
+	puppet/modules/params/manifests/init.pp
 
 When you are finished run:
 

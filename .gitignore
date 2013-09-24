@@ -4,7 +4,7 @@ package.box
 
 # Data / Config
 /files/www/*
-/puppet/manifests/params.pp
+/puppet/modules/params/manifests/init.pp
 
 # Sublime Text
 *.sublime-project

@@ -37,5 +37,5 @@ class params
   $use_default_theme = "1"
   $use_default_theme_twig = "1"
   $use_demo_data = "1"
-  $encypt_key = "admin"
+  $encypt_key = "encryption"
 }
